@@ -5,6 +5,8 @@ const App = function () {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
 
+    console.log(users);
+
     useEffect(() => {
         fetch("/api/users")
             .then((users) => setUsers(users))
@@ -47,7 +49,7 @@ const App = function () {
                     : (<Fragment>
                             <h2>Available Users</h2>
                             <ol>
-                                {users.map((user, index) => (
+                                {users?.map((user, index) => (
                                     <li key={index}>
                                         Name: {user.name} - Email: {user.email}
                                     </li>
