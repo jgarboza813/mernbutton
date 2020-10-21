@@ -2,19 +2,27 @@ import React, {Fragment, useState, useEffect} from 'react'
 
 const App = function () {
     const [users, setUsers] = useState(null);
-    const [username, setUsername] = useState("");
+    const [name, setUsername] = useState("");
     const [email, setEmail] = useState("");
 
-    console.log(users);
+    const fetchUsers = () => {
+        fetch("/api/users", {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(users => users.json())
+            .then(users => { setUsers(users) })
+            .catch((err) => console.log(err));
+    }
 
     useEffect(() => {
-        fetch("/api/users")
-            .then((users) => setUsers(users))
-            .catch((err) => console.log(err));
+        console.log('Fetching users...');
+        fetchUsers();
     }, []);
 
-    function submitForm() {
-        if (username === "") {
+    const submitForm = event => {
+        if (name === "") {
             alert("Please fill the username field");
             return;
         }
@@ -25,18 +33,18 @@ const App = function () {
         }
 
         fetch("/api/users", {
-            method: 'POST', body: JSON.stringify(
-                {
-                    username: username,
-                    email: email
-                },
-            )
-        }).then(function () {
+            method: 'POST',
+            body: JSON.stringify({ name, email }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
             alert("Account created successfully");
-            window.location.reload();
-        }).catch(function () {
-            alert("Could not creat account. Please try again");
+        }).catch(() => {
+            alert("Could not create account. Please try again");
         });
+
+        event.preventDefault();
     }
 
     return (
@@ -73,4 +81,5 @@ const App = function () {
         </Fragment>
     );
 };
+
 export default App
