@@ -39,7 +39,10 @@ const App = function () {
                 'Content-Type': 'application/json'
             }
         }).then(() => {
-            alert("Account created successfully");
+            console.log(`Account ${name} created successfully`);
+            setUsers(users => [...users, { name, email }]);
+            setUsername('');
+            setEmail('');
         }).catch(() => {
             alert("Could not create account. Please try again");
         });
@@ -70,10 +73,12 @@ const App = function () {
             <form onSubmit={submitForm}>
                 <input
                     onChange={(e) => setUsername(e.target.value)}
+                    value={name}
                     type="text"
                     placeholder="Enter your username" />
                 <input
                     onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     type="text"
                     placeholder="Enter your email address" />
                 <input type="submit"/>

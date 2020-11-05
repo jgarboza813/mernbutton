@@ -10,12 +10,15 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.10.8",
+    "polished": "^4.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "node backend/server.js",
+    "dev": "npm run start && react-scripts start",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
