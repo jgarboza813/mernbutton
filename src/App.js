@@ -52,7 +52,7 @@ const App = function () {
 
     return (
         <Fragment>
-            <h1>My Project</h1>
+            <h1>What's up homie?</h1>
             {users === null
                 ? (<p>Loading...</p>)
                 : users.length === 0
