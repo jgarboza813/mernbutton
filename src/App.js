@@ -1,4 +1,7 @@
 import React, {Fragment, useState, useEffect} from 'react'
+import "./styles.css";
+
+import Page from "./Page";
 
 const App = function () {
     const [users, setUsers] = useState(null);
@@ -52,37 +55,7 @@ const App = function () {
 
     return (
         <Fragment>
-            <h1>What's up homie?</h1>
-            {users === null
-                ? (<p>Loading...</p>)
-                : users.length === 0
-                    ? (<p>No user available</p>)
-                    : (<Fragment>
-                            <h2>Available Users</h2>
-                            <ol>
-                                {users?.map((user, index) => (
-                                    <li key={index}>
-                                        Name: {user.name} - Email: {user.email}
-                                    </li>
-                                ))}
-                            </ol>
-                        </Fragment>
-                    )
-            }
-
-            <form onSubmit={submitForm}>
-                <input
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={name}
-                    type="text"
-                    placeholder="Enter your username" />
-                <input
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    type="text"
-                    placeholder="Enter your email address" />
-                <input type="submit"/>
-            </form>
+            <Page />
         </Fragment>
     );
 };
