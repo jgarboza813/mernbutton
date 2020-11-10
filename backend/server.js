@@ -10,7 +10,11 @@ app.use(cors());
 
 // API
 const users = require('./api/users');
+const clicks = require('./api/clicks');
+
 app.use('/api/users', users);
+app.use('/api/clicks', clicks);
+
 
 app.use(express.static(path.join(__dirname, '../build')))
 app.get('*', (req, res) => {

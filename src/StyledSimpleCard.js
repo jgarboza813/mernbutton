@@ -32,7 +32,7 @@ const StyledSimpleCard = styled.div`
       background-color: ${({ cardColor }) => cardColor};
       box-sizing: border-box;
       border-radius: 12px;
-      border: 1px solid ${({ borderColor }) => borderColor};
+      //border: 1px solid ${({ borderColor }) => borderColor};
       /* box-shadow: 0 4px 6px -10px ${({ shadowColor }) =>
       transparentize(0.875, darken(0.125, shadowColor))},
         0 2px 12px -14px ${({ shadowColor }) =>
@@ -221,7 +221,7 @@ const StyledSimpleCard = styled.div`
       &::before {
         transform: scale(1.05, 1.0375);
         border-color: ${({ iconColor }) => iconColor};
-        /* box-shadow: 0 4px 6px -2px ${({ shadowColor }) =>
+      /*   box-shadow: 0 4px 6px -2px ${({ shadowColor }) =>
       transparentize(0.875, darken(0.125, shadowColor))},
           0 2px 12px 0
             ${({ shadowColor }) =>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import StyledSimpleCard from './StyledSimpleCard';
 
-const Card = ({ loading, children }) => {
+const Card = ({ loading, children, onClick }) => {
 
     const [cardVisibility, updateCardVisibility] = useState(false);
     const cardClasses = "card";
@@ -17,8 +17,9 @@ const Card = ({ loading, children }) => {
             iconColor="#b8bbc2"
             shadowColor="#b8bbc2"
             className={`${cardClasses}${cardVisibility ? " fade-in" : ""}`}
-            easeSpeed={0.5}
-            easeFunction="cubic-bezier(0.2, 0, 0.38, 0.9)">
+            easeSpeed={0.1}
+            easeFunction="cubic-bezier(0.2, 0, 0.38, 0.9)"
+            onClick={onClick}>
             <div className={`card__content${loading ? " loading" : ""}`}>
                 {children}
             </div>
